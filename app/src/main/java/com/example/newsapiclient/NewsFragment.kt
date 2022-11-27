@@ -27,6 +27,10 @@ class NewsFragment : Fragment() {
     private lateinit var newsAdapter: NewsAdapter
     private var country = "us"
     private var page = 1
+    private var isScrolling = false
+    private var isLoading = false
+    private var isLastPage = false
+    private var pages = 0
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -55,7 +59,13 @@ class NewsFragment : Fragment() {
                     hideProgressBar()
                     response.data?.let{
                         newsAdapter.differ.submitList(it.articles.toList())
+
+                        if(it.totalResults%20 == 0)
+                            pages = it.totalResults/20
+                        else pages = it.totalResults/20 + 1
                     }
+
+                    isLastPage = page == pages
                 }
                 is Resource.Error -> {
                     response.message?.let {
@@ -74,14 +84,48 @@ class NewsFragment : Fragment() {
         binding.newsRecyclerView.apply {
             adapter = newsAdapter
             layoutManager = LinearLayoutManager(activity)
+
+            addOnScrollListener(this@NewsFragment.onScrollListener)
         }
     }
 
     private fun showProgressBar() {
+        isLoading = true
         binding.progressBar.visibility = View.VISIBLE
     }
 
     private fun hideProgressBar() {
+        isLoading = false
         binding.progressBar.visibility = View.GONE
+    }
+
+    private val onScrollListener = object: RecyclerView.OnScrollListener() {
+
+        //Callback method to be invoked when RecyclerView's scroll state changes.
+        override fun onScrollStateChanged(recyclerView: RecyclerView, newState: Int) {
+            super.onScrollStateChanged(recyclerView, newState)
+
+            if(newState == AbsListView.OnScrollListener.SCROLL_STATE_TOUCH_SCROLL)
+                isScrolling = true
+        }
+
+        //called after scrolling is completed
+        override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
+            super.onScrolled(recyclerView, dx, dy)
+
+            val layoutManager = binding.newsRecyclerView.layoutManager as LinearLayoutManager
+            val sizeOfCurrentList = layoutManager.itemCount
+            val visibleItems = layoutManager.childCount
+            val top = layoutManager.findFirstVisibleItemPosition()
+
+            val hasReachedToEnd = top + visibleItems >= sizeOfCurrentList
+            val shouldPaginate = !isLoading && !isLastPage && hasReachedToEnd && isScrolling
+            if(shouldPaginate) {
+                page++
+                newsViewModel.getNewsHeadlines(country, page)
+                isScrolling = false
+            }
+
+        }
     }
 }
