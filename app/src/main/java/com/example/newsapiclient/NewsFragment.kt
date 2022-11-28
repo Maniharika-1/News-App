@@ -49,7 +49,8 @@ class NewsFragment : Fragment() {
 
         newsAdapter.setOnItemClickListener {
             val bundle = Bundle().apply {
-                putSerializable("selected_article", it)
+                putSerializable("selected_article", it) //To pass article as Serializable, make Article and Source data classes
+                                                        // implement Serializable interface
             }
 
             findNavController().navigate(R.id.action_newsFragment_to_infoFragment, bundle)
