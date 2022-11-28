@@ -58,6 +58,7 @@ class NewsFragment : Fragment() {
 
         initRecyclerView()
         viewNewsList()
+        setSearchView()
     }
 
     private fun viewNewsList() {
@@ -133,6 +134,72 @@ class NewsFragment : Fragment() {
                 page++
                 newsViewModel.getNewsHeadlines(country, page)
                 isScrolling = false
+            }
+
+        }
+    }
+
+    //search
+    private fun setSearchView() {
+        binding.newsSearchView.setOnQueryTextListener(
+            object: SearchView.OnQueryTextListener{
+                override fun onQueryTextSubmit(p0: String?): Boolean {
+                    newsViewModel.searchNews("us", p0.toString(),page)
+                    viewSearchedNews()
+                    return false
+                }
+
+                override fun onQueryTextChange(p0: String?): Boolean {
+                    MainScope().launch { //MainScope is coroutine launcher specially created for user interface components.
+
+                        delay(20000) //we don't want to update list immediately after user enters a letter. We're giving user
+                        // 2 seconds of time to enter the search query.
+                        newsViewModel.searchNews("us", p0.toString(),page)
+                        viewSearchedNews()
+
+                    }
+                    return false
+                }
+
+            })
+
+        binding.newsSearchView.setOnCloseListener(
+            object : SearchView.OnCloseListener{
+                override fun onClose(): Boolean {
+                    initRecyclerView()
+                    viewNewsList()
+                    return false
+                }
+
+            })
+    }
+
+    private fun viewSearchedNews() {
+        if(view != null) {
+
+            newsViewModel.searchedNews.observe(viewLifecycleOwner){response ->
+                when(response) {
+                    is Resource.Success -> {
+                        hideProgressBar()
+                        response.data?.let{
+                            newsAdapter.differ.submitList(it.articles.toList())
+
+                            if(it.totalResults%20 == 0)
+                                pages = it.totalResults/20
+                            else pages = it.totalResults/20 + 1
+                        }
+
+                        isLastPage = page == pages
+                    }
+                    is Resource.Error -> {
+                        response.message?.let {
+                            Toast.makeText(activity, "An error occured : $it", Toast.LENGTH_LONG).show()
+                        }
+                    }
+                    is Resource.Loading -> {
+                        showProgressBar()
+                    }
+                }
             }
 
         }
