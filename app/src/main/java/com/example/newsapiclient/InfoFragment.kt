@@ -14,6 +14,7 @@ import com.google.android.material.snackbar.Snackbar
 class InfoFragment : Fragment() {
 
     private lateinit var binding: FragmentInfoBinding
+    private lateinit var viewModel: NewsViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -26,6 +27,7 @@ class InfoFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding = FragmentInfoBinding.bind(view)
+        viewModel = (activity as MainActivity).viewModel
         val args : InfoFragmentArgs by navArgs()
         val selectedArticle = args.selectedArticle
         binding.newsInfoWebView.apply {
@@ -33,5 +35,12 @@ class InfoFragment : Fragment() {
             if(selectedArticle.url != null)
                 loadUrl(selectedArticle.url)
         }
+
+        binding.saveFAB.setOnClickListener {
+            viewModel.saveArticle(selectedArticle)
+            Snackbar.make(view,"Saved Successfully!", Snackbar.LENGTH_LONG).show()
+        }
+
+
     }
 }
