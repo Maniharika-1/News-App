@@ -1,6 +1,7 @@
 package com.example.newsapiclient
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -31,6 +32,7 @@ class NewsFragment : Fragment() {
     private var isLoading = false
     private var isLastPage = false
     private var pages = 0
+    private var allArticles = ArrayList<Article>()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -68,7 +70,9 @@ class NewsFragment : Fragment() {
                 is Resource.Success -> {
                     hideProgressBar()
                     response.data?.let{
-                        newsAdapter.differ.submitList(it.articles.toList())
+
+                        allArticles.addAll(it.articles.toList())
+                        newsAdapter.differ.submitList(allArticles)
 
                         if(it.totalResults%20 == 0)
                             pages = it.totalResults/20
@@ -79,7 +83,7 @@ class NewsFragment : Fragment() {
                 }
                 is Resource.Error -> {
                     response.message?.let {
-                        Toast.makeText(activity, "An error occured : $it", Toast.LENGTH_LONG).show()
+                        Toast.makeText(activity, "An error occurred : $it", Toast.LENGTH_LONG).show()
                     }
                 }
                 is Resource.Loading -> {
@@ -95,7 +99,7 @@ class NewsFragment : Fragment() {
             adapter = newsAdapter
             layoutManager = LinearLayoutManager(activity)
 
-            //addOnScrollListener(this@NewsFragment.onScrollListener)
+            addOnScrollListener(this@NewsFragment.onScrollListener)
         }
     }
 
@@ -109,46 +113,37 @@ class NewsFragment : Fragment() {
         binding.progressBar.visibility = View.GONE
     }
 
-//    private val onScrollListener = object: RecyclerView.OnScrollListener() {
-//
-//        //Callback method to be invoked when RecyclerView's scroll state changes.
-//        override fun onScrollStateChanged(recyclerView: RecyclerView, newState: Int) {
-//            super.onScrollStateChanged(recyclerView, newState)
-//
-//            if(newState == AbsListView.OnScrollListener.SCROLL_STATE_TOUCH_SCROLL)
-//                isScrolling = true
-//        }
-//
-//        //called after scrolling is completed
-//        override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
-//            super.onScrolled(recyclerView, dx, dy)
-//
-//            val layoutManager = binding.newsRecyclerView.layoutManager as LinearLayoutManager
-//            val sizeOfCurrentList = layoutManager.itemCount
-//            val visibleItems = layoutManager.childCount
-//            val top = layoutManager.findFirstVisibleItemPosition()
-//
-//            Log.d("NewsFragmentOut", "onScrolled: "+page +" "+top)
-//
-//            if(page != 0 && top % 20 == 0) {
-//                page--
-//                newsViewModel.getNewsHeadlines(country,page)
-//                Log.d("NewsFragmentIf", "onScrolled: "+page)
-//                isScrolling = false
-//            } else {
-//
-//                val hasReachedToEnd = top + visibleItems >= sizeOfCurrentList
-//                Log.d("NewsFragment", "onScrolled: "+page+" "+isLastPage +" "+pg)
-//                val shouldPaginate = !isLoading && !isLastPage && hasReachedToEnd && isScrolling
-//                if(shouldPaginate) {
-//                    page++
-//                    newsViewModel.getNewsHeadlines(country, page)
-//                    isScrolling = false
-//                }
-//
-//            }
-//        }
-//    }
+    private val onScrollListener = object: RecyclerView.OnScrollListener() {
+
+        //Callback method to be invoked when RecyclerView's scroll state changes.
+        override fun onScrollStateChanged(recyclerView: RecyclerView, newState: Int) {
+            super.onScrollStateChanged(recyclerView, newState)
+
+            if(newState == AbsListView.OnScrollListener.SCROLL_STATE_TOUCH_SCROLL)
+                isScrolling = true
+        }
+
+        //called after scrolling is completed
+        override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
+            super.onScrolled(recyclerView, dx, dy)
+
+            val layoutManager = binding.newsRecyclerView.layoutManager as LinearLayoutManager
+            val sizeOfCurrentList = layoutManager.itemCount
+            val visibleItems = layoutManager.childCount
+            val top = layoutManager.findFirstVisibleItemPosition()
+
+            val hasReachedToEnd = top + visibleItems >= sizeOfCurrentList
+
+            val shouldPaginate = !isLoading && !isLastPage && hasReachedToEnd && isScrolling
+            if(shouldPaginate) {
+                page++
+                showProgressBar()
+                newsViewModel.getNewsHeadlines(country, page)
+                hideProgressBar()
+                isScrolling = false
+            }
+        }
+    }
 
     //search
     private fun setSearchView() {
@@ -204,7 +199,7 @@ class NewsFragment : Fragment() {
                     }
                     is Resource.Error -> {
                         response.message?.let {
-                            Toast.makeText(activity, "An error occured : $it", Toast.LENGTH_LONG).show()
+                            Toast.makeText(activity, "An error occurred : $it", Toast.LENGTH_LONG).show()
                         }
                     }
                     is Resource.Loading -> {
