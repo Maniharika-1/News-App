@@ -34,9 +34,11 @@ class NewsRepositoryImpl(
     }
 
     override suspend fun saveNews(article: Article) {
+        newsLocalDataSource.saveArticleToDB(article)
     }
 
     override suspend fun deleteNews(article: Article) {
+        newsLocalDataSource.deleteArticle(article)
     }
 
     override fun getSavedNews(): Flow<List<Article>> {
