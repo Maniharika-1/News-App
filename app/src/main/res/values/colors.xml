@@ -9,4 +9,9 @@
     <color name="white">#FFFFFFFF</color>
     <color name="cardBackgroundColor">#535050</color>
     <color name="searchViewBackground">#817F7F</color>
+    <color name="light_grey">#8A8787</color>
+    <color name="bottom_nav_bg">#323131</color>
+    <color name="main_bg">#050507</color>
+    <color name="main_bg_1">#2D2D2E</color>
+    <color name="bottom_nav_text">#9599A6</color>
 </resources>

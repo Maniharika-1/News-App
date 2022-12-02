@@ -3,10 +3,8 @@
 
     <item
         android:id="@+id/newsFragment"
-        android:icon="@drawable/ic_baseline_live_tv_24"
-        android:title="News Headlines" />
+        android:title="Headlines" />
     <item
         android:id="@+id/savedFragment"
-        android:icon="@drawable/ic_baseline_save_24"
-        android:title="Saved News" />
+        android:title="Favorites" />
 </menu>

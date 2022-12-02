@@ -1,14 +1,15 @@
 package com.example.newsapiclient
 
+import android.os.Build
 import android.os.Bundle
-import android.util.Log
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.AbsListView
 import android.widget.SearchView
 import android.widget.Toast
+import androidx.annotation.RequiresApi
+import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -20,6 +21,10 @@ import com.example.newsapiclient.presentation.viewmodel.NewsViewModel
 import kotlinx.coroutines.MainScope
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
+import java.time.LocalDate
+import java.time.LocalDateTime
+import java.time.format.DateTimeFormatter
+import java.util.*
 
 class NewsFragment : Fragment() {
 
@@ -42,6 +47,7 @@ class NewsFragment : Fragment() {
         return inflater.inflate(R.layout.fragment_news, container, false)
     }
 
+    @RequiresApi(Build.VERSION_CODES.O)
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
@@ -58,9 +64,25 @@ class NewsFragment : Fragment() {
             findNavController().navigate(R.id.action_newsFragment_to_infoFragment, bundle)
         }
 
+        setDate()
         initRecyclerView()
         viewNewsList()
         setSearchView()
+    }
+
+    @RequiresApi(Build.VERSION_CODES.O)
+    private fun setDate() {
+
+        val dateTimeFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")
+        val now = LocalDateTime.now().format(dateTimeFormatter)
+
+        val parsedDate = LocalDate.parse(now, dateTimeFormatter)
+        val dayOfWeek = parsedDate.dayOfWeek.toString()
+        val formattedDayOfWeek = dayOfWeek[0] + dayOfWeek.substring(1, dayOfWeek.length).lowercase()
+        val month = parsedDate.month.toString()
+        val formattedMonth = month[0] + month.substring(1, month.length).lowercase()
+        binding.dateTV.text = formattedDayOfWeek + ", " + formattedMonth +" " +parsedDate.dayOfMonth
+
     }
 
     private fun viewNewsList() {
