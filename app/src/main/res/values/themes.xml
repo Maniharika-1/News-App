@@ -16,10 +16,12 @@
 
     <style name="BottomNavigationView" parent="@style/TextAppearance.AppCompat.Caption">
         <item name="android:textSize">18sp</item>
+        <item name="android:fontFamily">serif</item>
     </style>
 
     <style name="BottomNavigationView.Active" parent="@style/TextAppearance.AppCompat.Caption">
         <item name="android:textSize">18sp</item>
+        <item name="android:fontFamily">serif</item>
     </style>
 
 </resources>
