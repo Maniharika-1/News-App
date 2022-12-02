@@ -24,4 +24,10 @@
         <item name="android:fontFamily">serif</item>
     </style>
 
+    <style name="searchViewStyle" parent="@style/Widget.AppCompat.SearchView">
+        <item name="android:textColorHint">@color/white</item>
+        <item name="android:editTextColor">@color/white</item>
+        <item name="android:textColorSecondary">@color/white</item>
+    </style>
+
 </resources>

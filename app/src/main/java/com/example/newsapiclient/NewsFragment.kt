@@ -64,10 +64,24 @@ class NewsFragment : Fragment() {
             findNavController().navigate(R.id.action_newsFragment_to_infoFragment, bundle)
         }
 
+        binding.searchIconIB.setOnClickListener {
+            showSearchView()
+        }
+
         setDate()
         initRecyclerView()
         viewNewsList()
         setSearchView()
+    }
+
+    private fun showSearchView() {
+        binding.headersCL.visibility = View.GONE
+        binding.newsSearchView.visibility = View.VISIBLE
+    }
+
+    private fun hideSearchView() {
+        binding.headersCL.visibility = View.VISIBLE
+        binding.newsSearchView.visibility = View.GONE
     }
 
     @RequiresApi(Build.VERSION_CODES.O)
