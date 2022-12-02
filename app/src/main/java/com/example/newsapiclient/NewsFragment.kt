@@ -2,6 +2,7 @@ package com.example.newsapiclient
 
 import android.os.Build
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -92,10 +93,10 @@ class NewsFragment : Fragment() {
 
         val parsedDate = LocalDate.parse(now, dateTimeFormatter)
         val dayOfWeek = parsedDate.dayOfWeek.toString()
-        val formattedDayOfWeek = dayOfWeek[0] + dayOfWeek.substring(1, dayOfWeek.length).lowercase()
+        val formattedDayOfWeek = "${dayOfWeek[0]}${dayOfWeek.substring(1, dayOfWeek.length).lowercase()}"
         val month = parsedDate.month.toString()
-        val formattedMonth = month[0] + month.substring(1, month.length).lowercase()
-        binding.dateTV.text = formattedDayOfWeek + ", " + formattedMonth +" " +parsedDate.dayOfMonth
+        val formattedMonth = "${month[0]}${month.substring(1, month.length).lowercase()}"
+        binding.dateTV.text = "$formattedDayOfWeek, $formattedMonth ${parsedDate.dayOfMonth}"
 
     }
 
@@ -120,6 +121,7 @@ class NewsFragment : Fragment() {
                 is Resource.Error -> {
                     response.message?.let {
                         Toast.makeText(activity, "An error occurred : $it", Toast.LENGTH_LONG).show()
+                        Log.d("NewsFragmentttt", "viewNewsList: $it, ${response.message}")
                     }
                 }
                 is Resource.Loading -> {
@@ -208,6 +210,7 @@ class NewsFragment : Fragment() {
         binding.newsSearchView.setOnCloseListener(
             object : SearchView.OnCloseListener{
                 override fun onClose(): Boolean {
+                    hideSearchView()
                     initRecyclerView()
                     viewNewsList()
                     return false
@@ -236,6 +239,7 @@ class NewsFragment : Fragment() {
                     is Resource.Error -> {
                         response.message?.let {
                             Toast.makeText(activity, "An error occurred : $it", Toast.LENGTH_LONG).show()
+                            Log.d("NewsFragmentttt", "viewSearchedNews: $it, ${response.message}")
                         }
                     }
                     is Resource.Loading -> {
