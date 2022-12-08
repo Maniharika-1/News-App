@@ -1,12 +1,12 @@
 # News-App
-![Screenshot_20221208-230444_NewsAPIClient](https://user-images.githubusercontent.com/39825424/206526972-d4ed425d-bcc0-4907-8dac-62964fa79fe9.jpg)
-![Screenshot_20221208-230458_NewsAPIClient](https://user-images.githubusercontent.com/39825424/206527604-d5fa414d-ae2f-45af-9872-b2559fd10685.jpg)
-![Screenshot_20221208-231255_NewsAPIClient](https://user-images.githubusercontent.com/39825424/206527639-d6ff8ea3-5d00-459b-b9db-91cbff362b3a.jpg)
-![Screenshot_20221208-231346_NewsAPIClient](https://user-images.githubusercontent.com/39825424/206527680-6e8ffebd-3616-4ca2-87b0-41bb28f3ca6c.jpg)
-![Screenshot_20221208-231405_NewsAPIClient](https://user-images.githubusercontent.com/39825424/206527713-bec0762a-52e2-4db0-8ec5-3e9951c4d138.jpg)
-![Screenshot_20221208-231413_NewsAPIClient](https://user-images.githubusercontent.com/39825424/206527741-9ccf65d3-c10f-433f-b03e-9a44b6445279.jpg)
-![Screenshot_20221208-231421_NewsAPIClient](https://user-images.githubusercontent.com/39825424/206527762-f3bf8ad0-e011-480f-869a-7fec71581096.jpg)
-![Screenshot_20221208-231425_NewsAPIClient](https://user-images.githubusercontent.com/39825424/206527787-1c5de451-fe45-4e17-8523-f65c47727078.jpg)
+![Screenshot_20221208-230444_NewsAPIClient](https://user-images.githubusercontent.com/39825424/206529539-365d6046-e34e-4d7e-a667-0003b35b3950.jpg)
+![Screenshot_20221208-230458_NewsAPIClient](https://user-images.githubusercontent.com/39825424/206529590-c0422f36-a414-4eae-a437-a1e2cbdeb2d8.jpg)
+![Screenshot_20221208-231255_NewsAPIClient](https://user-images.githubusercontent.com/39825424/206529610-318bfacb-75d8-42c1-b8e0-d9e7f739ab1a.jpg)
+![Screenshot_20221208-231346_NewsAPIClient](https://user-images.githubusercontent.com/39825424/206529637-b1e07b18-0bc3-404f-acd3-bdba01ea33a1.jpg)
+![Screenshot_20221208-231405_NewsAPIClient](https://user-images.githubusercontent.com/39825424/206529686-4ba8514b-24ba-44cc-96c4-73eecb4f02cf.jpg)
+![Screenshot_20221208-231413_NewsAPIClient](https://user-images.githubusercontent.com/39825424/206529722-105e715f-c17d-478d-9f85-adc6b9834dc5.jpg)
+![Screenshot_20221208-231421_NewsAPIClient](https://user-images.githubusercontent.com/39825424/206529745-5abd2dcf-9736-4ae1-9bb0-c29319893d4b.jpg)
+![Screenshot_20221208-231425_NewsAPIClient](https://user-images.githubusercontent.com/39825424/206529779-38750b87-1abe-48c1-bf23-7645736979ad.jpg)
 
 ## Overview
 * Helps users to discover latest trending stories/news from various news sources. 
