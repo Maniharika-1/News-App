@@ -6,13 +6,13 @@
 * Users can view news, search headlines, save news in local, view saved news and delete saved news.
 
 ![Screenshot_20221208-230444_NewsAPIClient](https://user-images.githubusercontent.com/39825424/206526972-d4ed425d-bcc0-4907-8dac-62964fa79fe9.jpg)
-![Screenshot_20221208-230458_NewsAPIClient](https://user-images.githubusercontent.com/39825424/206526071-23de0cb5-d158-4a32-bf4b-2208ef548549.jpg)
-![Screenshot_20221208-231255_NewsAPIClient](https://user-images.githubusercontent.com/39825424/206526136-72b9825c-cce8-4cba-a3fb-3bd286173ef5.jpg)
-![Screenshot_20221208-231346_NewsAPIClient](https://user-images.githubusercontent.com/39825424/206526184-0d64a893-f7e2-4e09-8821-69ce7eacf733.jpg)
-![Screenshot_20221208-231405_NewsAPIClient](https://user-images.githubusercontent.com/39825424/206526214-fec01175-0126-48b9-8c45-41a340c731aa.jpg)
-![Screenshot_20221208-231413_NewsAPIClient](https://user-images.githubusercontent.com/39825424/206526246-2510983b-6435-4d92-b9fb-37a08182dcd8.jpg)
-![Screenshot_20221208-231421_NewsAPIClient](https://user-images.githubusercontent.com/39825424/206526281-bdfad178-cec3-4096-94e4-5a8739b444ee.jpg)
-![Screenshot_20221208-231425_NewsAPIClient](https://user-images.githubusercontent.com/39825424/206526333-e77b9391-ee81-418d-ad31-e31d8c1ecc84.jpg)
+![Screenshot_20221208-230458_NewsAPIClient](https://user-images.githubusercontent.com/39825424/206527604-d5fa414d-ae2f-45af-9872-b2559fd10685.jpg)
+![Screenshot_20221208-231255_NewsAPIClient](https://user-images.githubusercontent.com/39825424/206527639-d6ff8ea3-5d00-459b-b9db-91cbff362b3a.jpg)
+![Screenshot_20221208-231346_NewsAPIClient](https://user-images.githubusercontent.com/39825424/206527680-6e8ffebd-3616-4ca2-87b0-41bb28f3ca6c.jpg)
+![Screenshot_20221208-231405_NewsAPIClient](https://user-images.githubusercontent.com/39825424/206527713-bec0762a-52e2-4db0-8ec5-3e9951c4d138.jpg)
+![Screenshot_20221208-231413_NewsAPIClient](https://user-images.githubusercontent.com/39825424/206527741-9ccf65d3-c10f-433f-b03e-9a44b6445279.jpg)
+![Screenshot_20221208-231421_NewsAPIClient](https://user-images.githubusercontent.com/39825424/206527762-f3bf8ad0-e011-480f-869a-7fec71581096.jpg)
+![Screenshot_20221208-231425_NewsAPIClient](https://user-images.githubusercontent.com/39825424/206527787-1c5de451-fe45-4e17-8523-f65c47727078.jpg)
 
 
 ## Libraries used
