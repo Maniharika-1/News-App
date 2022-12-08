@@ -20,7 +20,7 @@
 * Kotlin Coroutines
 * View Model
 * Live Data
-* Data Binding
+* View Binding
 * Recycler View with DiffUtil
 * Navigation Architecture Component
 * Glide
@@ -44,7 +44,7 @@
 * Data Layer
    * This layer is the data provider. Data fetched from remote is inserted into local database. When internet connection is available, remote API calls are made. In the absence of internet connection, data will be fetched from local database.
    * It contains Remote Data Source and Local Data Source interfaces and corresponding implementation classess.
-   * To understand the status of API response, sealed class - Resource is used which specifies if status is Success, Loading or Error. This approach helps in handling exceptions caused from remote API calls in a better way. In repositories, before sending the data to use cases, we verify and return the API response status. If there is an error, corresponding error message is sent.
 
-
+###### Points
+* To understand the status of API response, a generic sealed class - Resource is used which will return if status is Success, Loading or Error. This approach helps in handling exceptions from remote API calls in a better way. In repositories, before sending the data to use cases, we verify the API response status and return.
   
