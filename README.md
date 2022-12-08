@@ -28,7 +28,7 @@
    * In this project, viewModelScope coroutine builders are used so that coroutine is tied to view model lifecycle and gets canceled if view model is cleared which helps in avoiding memory leaks.
 
 * Domain Layer
-  * This layer contains the use cases, repository interface and repository implementation class.
+  * This layer contains use cases, repository interface and repository implementation class.
   * Use case classess do not contain any android components. These are simple Kotlin classess which invoke methods in repository.
   * Repository gets data from data sources and provides to use cases.
 
