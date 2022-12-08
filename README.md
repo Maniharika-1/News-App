@@ -18,13 +18,8 @@
 * Hilt
 * Search View
 
+## Deep Dive
+###### MVVM Clean Architecture
+![MVVM Clean Architecture](https://user-images.githubusercontent.com/39825424/206473999-bb10ded0-5fdb-4b98-a6ab-6f8dfe057ae3.jpg)
 
-```mermaid
-graph TD;
-  UI (Activity/Fragment)-->View Model;
-  View Model-->Use Case;
-  Use Case-->Repository;
-  Repository-->Remote Data Source;
-  Repository--> Local Data Source;
-```
   
