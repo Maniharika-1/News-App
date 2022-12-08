@@ -5,7 +5,7 @@
 * Follows MVVM with clean architecture.
 * Users can view news, search headlines, save news in local, view saved news and delete saved news.
 
-![Screenshot_20221208-230444_NewsAPIClient](https://user-images.githubusercontent.com/39825424/206525974-b30a56a9-f831-427e-a042-513d75ae6f69.jpg)
+![Screenshot_20221208-230444_NewsAPIClient](https://user-images.githubusercontent.com/39825424/206526738-04f41bba-a2b8-4ec2-a346-cd5f4fdc8de9.jpg)
 ![Screenshot_20221208-230458_NewsAPIClient](https://user-images.githubusercontent.com/39825424/206526071-23de0cb5-d158-4a32-bf4b-2208ef548549.jpg)
 ![Screenshot_20221208-231255_NewsAPIClient](https://user-images.githubusercontent.com/39825424/206526136-72b9825c-cce8-4cba-a3fb-3bd286173ef5.jpg)
 ![Screenshot_20221208-231346_NewsAPIClient](https://user-images.githubusercontent.com/39825424/206526184-0d64a893-f7e2-4e09-8821-69ce7eacf733.jpg)
