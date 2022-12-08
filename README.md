@@ -1,10 +1,4 @@
 # News-App
-## Overview
-* Helps users to discover latest trending stories/news from various news sources. 
-* Fetches data from [NewsAPI](https://newsapi.org/). 
-* Follows MVVM with clean architecture.
-* Users can view news, search headlines, save news in local, view saved news and delete saved news.
-
 ![Screenshot_20221208-230444_NewsAPIClient](https://user-images.githubusercontent.com/39825424/206526972-d4ed425d-bcc0-4907-8dac-62964fa79fe9.jpg)
 ![Screenshot_20221208-230458_NewsAPIClient](https://user-images.githubusercontent.com/39825424/206527604-d5fa414d-ae2f-45af-9872-b2559fd10685.jpg)
 ![Screenshot_20221208-231255_NewsAPIClient](https://user-images.githubusercontent.com/39825424/206527639-d6ff8ea3-5d00-459b-b9db-91cbff362b3a.jpg)
@@ -14,6 +8,11 @@
 ![Screenshot_20221208-231421_NewsAPIClient](https://user-images.githubusercontent.com/39825424/206527762-f3bf8ad0-e011-480f-869a-7fec71581096.jpg)
 ![Screenshot_20221208-231425_NewsAPIClient](https://user-images.githubusercontent.com/39825424/206527787-1c5de451-fe45-4e17-8523-f65c47727078.jpg)
 
+## Overview
+* Helps users to discover latest trending stories/news from various news sources. 
+* Fetches data from [NewsAPI](https://newsapi.org/). 
+* Follows MVVM with clean architecture.
+* Users can view news, search headlines, save news in local, view saved news and delete saved news.
 
 ## Libraries used
 * Room Library
