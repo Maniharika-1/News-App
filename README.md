@@ -15,7 +15,7 @@
 * Users can view news, search headlines, save news in local, view saved news and delete saved news.
 
 ## Libraries used
-* Room Library
+* Room
 * Retrofit
 * Kotlin Coroutines
 * View Model
