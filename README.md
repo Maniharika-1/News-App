@@ -34,7 +34,7 @@
 * Presentation Layer
    * When user interacts via activity/fragment, views start observing the required live data emitted by view models.
    * View models expose data to views. These are not aware of the consumers of data. Their primary responsibility is to emit live data.
-   * In this project, viewModelScope coroutine builders are used so that coroutine is tied to view model lifecycle and gets canceled if view model is cleared which helps in avoiding memory leaks.
+   * In this project, viewModelScope coroutine builders are used so that coroutine is tied to view model lifecycle and gets canceled when view model is cleared which helps in avoiding memory leaks.
 
 * Domain Layer
   * This layer contains use cases, repository interface and repository implementation class.
@@ -47,4 +47,9 @@
 
 ###### Points
 * To understand the status of API response, a generic sealed class - Resource is used which will return if status is Success, Loading or Error. This approach helps in handling exceptions from remote API calls in a better way. In repositories, before sending the data to use cases, we verify the API response status and return.
-  
+* Article entity class has Source object as a member. Since room doesn't allow object references in entities, type converter is used to convert Source object to source name which is a primitive type. Likewise for retrieving data from table, we convert source name to Source object adding dummy values in other fields.
+* All network calls and local database calls are made from background threads viewModelScope or liveData coroutiune builders.
+* In recycler view when list data changes, with notifyDataSetChanged() it will not know which particular element has been modified. Hence it will load/refresh all the visible items again which is an inefficient way when data is huge. To avoid this, DiffUtil utility class has been used which calculates the difference between old and new lists and returns the difference. With AsyncListDiffer class (helper class for computing the difference between two lists via DiffUtil), difference will be calculated in background thread instead of main thread.
+* ItemTouchHelper callback has been used in Favorites to detect and delete the swiped article.
+
+
