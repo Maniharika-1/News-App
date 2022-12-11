@@ -12,10 +12,10 @@
         android:id="@+id/headingCL"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingHorizontal="15dp"
-        android:paddingVertical="7dp"
-        android:layout_marginTop="5dp"
-        android:background="@color/main_bg"
+        android:paddingHorizontal="10dp"
+        android:paddingVertical="12dp"
+        android:paddingStart="20dp"
+        android:background="@color/daily_feed_heading_bg"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent">
 
@@ -32,7 +32,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/default_date_string"
-                android:textColor="@color/bottom_nav_text"
+                android:textColor="@color/black"
                 android:textSize="17sp"
                 android:fontFamily="serif"
                 app:layout_constraintStart_toStartOf="parent"
@@ -43,22 +43,21 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/daily_feed"
-                android:textColor="@color/white"
+                android:textColor="@color/black"
                 android:textSize="23sp"
                 android:textStyle="bold"
                 android:fontFamily="serif"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/dateTV" />
 
-            <ImageButton
-                android:id="@+id/searchIconIB"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@drawable/ic_baseline_search_24"
-                android:background="@android:color/transparent"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+<!--            <ImageButton-->
+<!--                android:id="@+id/searchIconIB"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:src="@drawable/ic_baseline_search_24"-->
+<!--                android:background="@android:color/transparent"-->
+<!--                app:layout_constraintEnd_toEndOf="parent"-->
+<!--                app:layout_constraintTop_toTopOf="parent" />-->
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -66,13 +65,15 @@
             android:id="@+id/newsSearchView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="5dp"
-            android:visibility="gone"
-            android:background="@color/searchViewBackground"
+            android:iconifiedByDefault="true"
+            android:layoutDirection="rtl"
+            android:queryHint="Search article!"
             android:theme="@style/searchViewStyle"
+            android:clickable="true"
+            android:gravity="top"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"/>
+            app:layout_constraintEnd_toEndOf="parent"
+            android:focusable="true" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
