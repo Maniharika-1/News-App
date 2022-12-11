@@ -17,8 +17,10 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.newsapiclient.data.model.Article
 import com.example.newsapiclient.data.util.Resource
 import com.example.newsapiclient.databinding.FragmentNewsBinding
+import com.example.newsapiclient.databinding.NewsListItemBinding
 import com.example.newsapiclient.presentation.adapter.NewsAdapter
 import com.example.newsapiclient.presentation.viewmodel.NewsViewModel
+import com.google.android.material.snackbar.Snackbar
 import kotlinx.coroutines.MainScope
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
@@ -29,7 +31,7 @@ import java.util.*
 
 class NewsFragment : Fragment() {
 
-    private lateinit var newsViewModel: NewsViewModel
+    lateinit var newsViewModel: NewsViewModel
     private lateinit var binding: FragmentNewsBinding
     private lateinit var newsAdapter: NewsAdapter
     private var country = "us"
@@ -39,6 +41,7 @@ class NewsFragment : Fragment() {
     private var isLastPage = false
     private var pages = 0
     private var allArticles = ArrayList<Article>()
+    private var isSearching = false
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -65,12 +68,14 @@ class NewsFragment : Fragment() {
             findNavController().navigate(R.id.action_newsFragment_to_infoFragment, bundle)
         }
 
-        binding.searchIconIB.setOnClickListener {
-            showSearchView()
+        newsAdapter.setOnFavItemClickListener {
+            newsViewModel.saveArticle(it)
+            Snackbar.make(view, "Added to favorites!", Snackbar.LENGTH_LONG).show()
         }
 
         setDate()
         initRecyclerView()
+        newsViewModel.getNewsHeadlines(country,page)
         viewNewsList()
         setSearchView()
     }
@@ -101,7 +106,6 @@ class NewsFragment : Fragment() {
     }
 
     private fun viewNewsList() {
-        newsViewModel.getNewsHeadlines(country,page)
         newsViewModel.newsHeadlines.observe(viewLifecycleOwner){response ->
             when(response) {
                 is Resource.Success -> {
@@ -172,7 +176,7 @@ class NewsFragment : Fragment() {
 
             val hasReachedToEnd = top + visibleItems >= sizeOfCurrentList
 
-            val shouldPaginate = !isLoading && !isLastPage && hasReachedToEnd && isScrolling
+            val shouldPaginate = !isLoading && !isLastPage && hasReachedToEnd && isScrolling && !isSearching
             if(shouldPaginate) {
                 page++
                 showProgressBar()
@@ -185,9 +189,14 @@ class NewsFragment : Fragment() {
 
     //search
     private fun setSearchView() {
+        binding.newsSearchView.setOnSearchClickListener {
+            binding.headersCL.visibility = View.GONE
+        }
         binding.newsSearchView.setOnQueryTextListener(
             object: SearchView.OnQueryTextListener{
                 override fun onQueryTextSubmit(p0: String?): Boolean {
+                    page = 1
+                    isSearching = true
                     newsViewModel.searchNews("us", p0.toString(),page)
                     viewSearchedNews()
                     return false
@@ -195,7 +204,7 @@ class NewsFragment : Fragment() {
 
                 override fun onQueryTextChange(p0: String?): Boolean {
                     MainScope().launch { //MainScope is coroutine launcher specially created for user interface components.
-
+                        isSearching = true
                         delay(20000) //we don't want to update list immediately after user enters a letter. We're giving user
                         // 2 seconds of time to enter the search query.
                         newsViewModel.searchNews("us", p0.toString(),page)
@@ -210,9 +219,14 @@ class NewsFragment : Fragment() {
         binding.newsSearchView.setOnCloseListener(
             object : SearchView.OnCloseListener{
                 override fun onClose(): Boolean {
-                    hideSearchView()
-                    initRecyclerView()
+                    isSearching = false
+                    page = 1
+                    //hideSearchView()
+                    //initRecyclerView()
+                    //viewNewsList()
+                    newsViewModel.getNewsHeadlines(country,page)
                     viewNewsList()
+                    binding.headersCL.visibility = View.VISIBLE
                     return false
                 }
 
@@ -229,12 +243,12 @@ class NewsFragment : Fragment() {
                         response.data?.let{
                             newsAdapter.differ.submitList(it.articles.toList())
 
-                            if(it.totalResults%20 == 0)
-                                pages = it.totalResults/20
-                            else pages = it.totalResults/20 + 1
+//                            if(it.totalResults%20 == 0)
+//                                pages = it.totalResults/20
+//                            else pages = it.totalResults/20 + 1
                         }
 
-                        isLastPage = page == pages
+                        //isLastPage = page == pages
                     }
                     is Resource.Error -> {
                         response.message?.let {
