@@ -37,8 +37,9 @@ class InfoFragment : Fragment() {
         }
 
         binding.saveFAB.setOnClickListener {
+            binding.saveFAB.setImageResource(R.drawable.ic_baseline_favorite_fill)
             viewModel.saveArticle(selectedArticle)
-            Snackbar.make(view,"Saved Successfully!", Snackbar.LENGTH_LONG).show()
+            Snackbar.make(view,"Added to favorites!", Snackbar.LENGTH_LONG).show()
         }
 
 
