@@ -8,6 +8,7 @@ import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupWithNavController
 import com.example.newsapiclient.databinding.ActivityMainBinding
 import com.example.newsapiclient.presentation.adapter.NewsAdapter
+import com.example.newsapiclient.presentation.adapter.SavedNewsAdapter
 import com.example.newsapiclient.presentation.viewmodel.NewsViewModel
 import com.example.newsapiclient.presentation.viewmodel.NewsViewModelFactory
 import dagger.hilt.EntryPoint
@@ -24,6 +25,9 @@ class MainActivity : AppCompatActivity() {
 
     @Inject
     lateinit var newsAdapter: NewsAdapter
+
+    @Inject
+    lateinit var savedNewsAdapter: SavedNewsAdapter
 
     @Inject
     lateinit var viewModelFactory: NewsViewModelFactory
