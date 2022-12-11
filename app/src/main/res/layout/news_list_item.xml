@@ -4,10 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@drawable/news_item_bg_shape"
     android:paddingHorizontal="10dp"
     android:paddingVertical="10dp"
     android:layout_marginTop="10dp"
+    android:background="@drawable/list_item_bg_shape"
     android:layout_marginHorizontal="5dp">
 
     <TextView
@@ -15,10 +15,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Source"
-        android:textColor="#ffffff"
+        android:textColor="@color/dark_grey"
         android:textSize="12sp"
         android:textStyle="italic"
         android:fontFamily="serif"
+        android:paddingTop="5dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"/>
 
@@ -27,15 +28,26 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:paddingBottom="7dp"
+        android:paddingTop="4dp"
         android:ellipsize="end"
-        android:maxLines="3"
+        android:maxLines="2"
         android:fontFamily="serif"
         android:text="Headlines"
-        android:textColor="#ffffff"
+        android:textStyle="bold"
+        android:textColor="@color/black"
         android:textSize="15sp"
-        android:textStyle="italic"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/sourceTV"/>
+
+    <ImageButton
+        android:id="@+id/favoriteIB"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingEnd="3dp"
+        android:src="@drawable/ic_baseline_favorite"
+        android:background="@android:color/transparent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -47,24 +59,22 @@
 
         <ImageView
             android:id="@+id/articleIV"
-            android:layout_width="125dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginEnd="5dp"
-            android:scaleType="centerInside"
+            android:scaleType="fitCenter"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@id/descriptionLinearLayout"
-            app:layout_constraintEnd_toStartOf="@id/descriptionLinearLayout"
+            app:layout_constraintTop_toTopOf="parent"
             tools:srcCompat="@tools:sample/avatars" />
 
         <LinearLayout
             android:id="@+id/descriptionLinearLayout"
-            android:layout_width="0dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
-            android:layout_weight="3"
             android:orientation="vertical"
-            app:layout_constraintStart_toEndOf="@id/articleIV"
-            app:layout_constraintTop_toTopOf="parent"
+            android:paddingTop="4dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/articleIV"
             app:layout_constraintEnd_toEndOf="parent">
 
             <TextView
@@ -72,11 +82,11 @@
                 android:layout_width="wrap_content"
                 android:layout_height="0dp"
                 android:layout_weight="3"
-                android:textColor="#ffffff"
-                android:maxLines="5"
+                android:textColor="@color/black"
+                android:maxLines="3"
                 android:fontFamily="serif"
                 android:text="Description"
-                android:textSize="13.5sp" />
+                android:textSize="14sp" />
 
             <TextView
                 android:id="@+id/publishedAtTV"
@@ -84,9 +94,10 @@
                 android:layout_height="wrap_content"
                 android:text="Published at"
                 android:paddingTop="5dp"
+                android:paddingBottom="5dp"
                 android:fontFamily="serif"
-                android:textColor="#ffffff"
-                android:textSize="12sp" />
+                android:textColor="@color/dark_grey"
+                android:textSize="13sp" />
 
         </LinearLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
