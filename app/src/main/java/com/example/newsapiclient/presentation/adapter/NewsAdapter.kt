@@ -1,13 +1,23 @@
 package com.example.newsapiclient.presentation.adapter
 
+import android.os.Build
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.annotation.RequiresApi
 import androidx.recyclerview.widget.AsyncListDiffer
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.example.newsapiclient.MainActivity
+import com.example.newsapiclient.NewsFragment
+import com.example.newsapiclient.R
 import com.example.newsapiclient.data.model.Article
 import com.example.newsapiclient.databinding.NewsListItemBinding
+import java.text.SimpleDateFormat
+import java.time.*
+import java.time.format.DateTimeFormatter
+import java.time.format.FormatStyle
+import java.util.*
 
 class NewsAdapter: RecyclerView.Adapter<NewsAdapter.NewsViewHolder>() {
 
@@ -37,6 +47,7 @@ class NewsAdapter: RecyclerView.Adapter<NewsAdapter.NewsViewHolder>() {
         return NewsViewHolder(listItemBinding)
     }
 
+    @RequiresApi(Build.VERSION_CODES.O)
     override fun onBindViewHolder(holder: NewsViewHolder, position: Int) {
         val article = differ.currentList[position]
         holder.bind(article)
@@ -50,12 +61,14 @@ class NewsAdapter: RecyclerView.Adapter<NewsAdapter.NewsViewHolder>() {
     inner class NewsViewHolder(val binding: NewsListItemBinding) : RecyclerView.ViewHolder(binding.root) {
 
         //call this function within onBindViewHolder() to bind data (article) with list item view
+        @RequiresApi(Build.VERSION_CODES.O)
         fun bind(article: Article) {
 
             //set data in text views
             binding.titleTV.text = article.title
             binding.descriptionTV.text = article.description
-            binding.publishedAtTV.text = article.publishedAt
+            val date = getFormattedDate(article.publishedAt)
+            binding.publishedAtTV.text = date
             binding.sourceTV.text = article.source?.name
 
             //load news article image using glide
@@ -69,6 +82,23 @@ class NewsAdapter: RecyclerView.Adapter<NewsAdapter.NewsViewHolder>() {
                 }
             }
 
+            binding.favoriteIB.setOnClickListener {
+                binding.favoriteIB.setImageResource(R.drawable.ic_baseline_favorite_fill)
+                onFavItemClickListener?.let {
+                    it(article)
+                }
+
+            }
+        }
+
+        @RequiresApi(Build.VERSION_CODES.O)
+        private fun getFormattedDate(publishedAt: String?): String {
+
+            val instant = Instant.parse(publishedAt)
+            val articlePublishedZonedTime = ZonedDateTime.ofInstant(instant, ZoneId.systemDefault())
+            val dateFormatter: DateTimeFormatter = DateTimeFormatter.ofLocalizedDateTime(FormatStyle.MEDIUM)
+
+            return articlePublishedZonedTime.format(dateFormatter)
         }
 
     }
@@ -81,6 +111,16 @@ class NewsAdapter: RecyclerView.Adapter<NewsAdapter.NewsViewHolder>() {
         listener: (Article)->Unit
     ) {
         onItemClickListener = listener
+    }
+
+    //lambda function
+    private var onFavItemClickListener: ((Article)->Unit)? = null
+
+    fun setOnFavItemClickListener(
+        //lambda function as function parameter
+        listener: (Article)->Unit
+    ) {
+        onFavItemClickListener = listener
     }
 
 }
