@@ -1,5 +1,6 @@
 # News-App
 ![Screenshot_20221212-152803_NewsAPIClient](https://user-images.githubusercontent.com/39825424/207020432-0938ffbc-c9de-4ce0-ac06-c829f1c1cf40.jpg)
+![Screenshot_20221212-152803_NewsAPIClient](https://user-images.githubusercontent.com/39825424/207020868-d3a0e2ad-0dc2-46b8-b0c6-41b356a7b72f.jpg)
 
 ## Overview
 * Helps users to discover latest trending stories/news from various news sources. 
