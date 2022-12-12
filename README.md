@@ -1,12 +1,10 @@
 # News-App
-![Screenshot_20221208-230444_NewsAPIClient](https://user-images.githubusercontent.com/39825424/206529539-365d6046-e34e-4d7e-a667-0003b35b3950.jpg)
-![Screenshot_20221208-230458_NewsAPIClient](https://user-images.githubusercontent.com/39825424/206529590-c0422f36-a414-4eae-a437-a1e2cbdeb2d8.jpg)
-![Screenshot_20221208-231255_NewsAPIClient](https://user-images.githubusercontent.com/39825424/206529610-318bfacb-75d8-42c1-b8e0-d9e7f739ab1a.jpg)
-![Screenshot_20221208-231346_NewsAPIClient](https://user-images.githubusercontent.com/39825424/206529637-b1e07b18-0bc3-404f-acd3-bdba01ea33a1.jpg)
-![Screenshot_20221208-231405_NewsAPIClient](https://user-images.githubusercontent.com/39825424/206529686-4ba8514b-24ba-44cc-96c4-73eecb4f02cf.jpg)
-![Screenshot_20221208-231413_NewsAPIClient](https://user-images.githubusercontent.com/39825424/206529722-105e715f-c17d-478d-9f85-adc6b9834dc5.jpg)
-![Screenshot_20221208-231421_NewsAPIClient](https://user-images.githubusercontent.com/39825424/206529745-5abd2dcf-9736-4ae1-9bb0-c29319893d4b.jpg)
-![Screenshot_20221208-231425_NewsAPIClient](https://user-images.githubusercontent.com/39825424/206529779-38750b87-1abe-48c1-bf23-7645736979ad.jpg)
+![Screenshot_20221212-152803_NewsAPIClient](https://user-images.githubusercontent.com/39825424/207017569-0ee51b4a-d4bc-4b39-aa75-a9b2d255d07c.jpg)
+![Screenshot_20221212-152927_NewsAPIClient](https://user-images.githubusercontent.com/39825424/207017611-f0e37074-e040-4af2-805a-f934bfe201c1.jpg)
+![Screenshot_20221212-153036_NewsAPIClient](https://user-images.githubusercontent.com/39825424/207017664-a372b844-133a-4b5a-9c99-b1e85a504d6b.jpg)
+![Screenshot_20221212-152853_NewsAPIClient](https://user-images.githubusercontent.com/39825424/207017713-ff618ac9-0447-4163-8a32-bfdf8588569b.jpg)
+![Screenshot_20221212-152904_NewsAPIClient](https://user-images.githubusercontent.com/39825424/207017736-b21804dd-00cd-46bc-a3cc-0a2e042dc59a.jpg)
+![Screenshot_20221212-152912_NewsAPIClient](https://user-images.githubusercontent.com/39825424/207017761-9f366185-803b-40f9-b10b-e55214822080.jpg)
 
 ## Overview
 * Helps users to discover latest trending stories/news from various news sources. 
