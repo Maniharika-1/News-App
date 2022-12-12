@@ -1,10 +1,10 @@
 # News-App
-![Screenshot_20221212-152803_NewsAPIClient](https://user-images.githubusercontent.com/39825424/207017569-0ee51b4a-d4bc-4b39-aa75-a9b2d255d07c.jpg)
-![Screenshot_20221212-152927_NewsAPIClient](https://user-images.githubusercontent.com/39825424/207017611-f0e37074-e040-4af2-805a-f934bfe201c1.jpg)
-![Screenshot_20221212-153036_NewsAPIClient](https://user-images.githubusercontent.com/39825424/207017664-a372b844-133a-4b5a-9c99-b1e85a504d6b.jpg)
-![Screenshot_20221212-152853_NewsAPIClient](https://user-images.githubusercontent.com/39825424/207017713-ff618ac9-0447-4163-8a32-bfdf8588569b.jpg)
-![Screenshot_20221212-152904_NewsAPIClient](https://user-images.githubusercontent.com/39825424/207017736-b21804dd-00cd-46bc-a3cc-0a2e042dc59a.jpg)
-![Screenshot_20221212-152912_NewsAPIClient](https://user-images.githubusercontent.com/39825424/207017761-9f366185-803b-40f9-b10b-e55214822080.jpg)
+![Screenshot_20221212-152803_NewsAPIClient](https://user-images.githubusercontent.com/39825424/207018769-0e0522f1-b268-430b-9dac-8ae6761476ae.jpg)
+![Screenshot_20221212-152927_NewsAPIClient](https://user-images.githubusercontent.com/39825424/207018821-8b70dbe7-f6fb-442b-a8c7-647aeb2882e5.jpg)
+![Screenshot_20221212-153036_NewsAPIClient](https://user-images.githubusercontent.com/39825424/207018851-7bf71c7a-7e51-421a-97cf-5a1f286d0431.jpg)
+![Screenshot_20221212-152853_NewsAPIClient](https://user-images.githubusercontent.com/39825424/207018886-ea6106fe-36b2-4c40-b929-0a5a5860f14b.jpg)
+![Screenshot_20221212-152904_NewsAPIClient](https://user-images.githubusercontent.com/39825424/207018910-756d93b3-4809-4dd3-b8c8-a2d1bf9af68e.jpg)
+![Screenshot_20221212-152912_NewsAPIClient](https://user-images.githubusercontent.com/39825424/207018932-304e461b-6c18-4039-b6d8-b3974ec79546.jpg)
 
 ## Overview
 * Helps users to discover latest trending stories/news from various news sources. 
