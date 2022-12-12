@@ -59,3 +59,16 @@
     * Any class/Activity: Consumer of dependency. It expresses consumption using @Inject annotation. For any field or constructor that has @Inject annotation, component will look for corresponding dependencies in the modules defined in @Component and provide that dependency.
 * Hilt is built on top of Dagger which generates most of the complex codes for us. We need not create Component interfaces. Hilt library has predefined components with various scopes defined. We only need to install our modules into those components with @InstallIn annotation in module classes.
 * We annotate the application class with @HiltAndroidApp and activity class with @AndroidEntryPoint. @AndroidEntryPoint generates an individual Hilt component for each class annotated with it and these components are used to receive dependencies.
+* In this project- B
+  * Below modules are created to provide dependencies:
+    * NetModule: Provides Retrofit and API service instance.
+    * DatabaseModule: Provides room database instance and DAO instance.
+    * RemoteDataModule: Provides NewsRemoteDataSource dependency by returning RemoteDataModuleImpl instance.
+    * LocalDataModule: Provides NewsLocalDataSource dependency by returning LocalDataModuleImpl instance.
+    * RepositoryModule: Provides NewsRepository dependency by returning NewsRepositoryImpl instance.
+    * UseCaseModule: Provides all use case instances.
+    * AdapterModule: Provides all adapter instances.
+    * FactoryModule: Provides NewsViewModelFactory instance.
+  * All the modules are installed in SingletonComponent class provided by Hilt.
+  * To avoid creating multiple instances of the object and to create a single instance of the object through the entire application lifecycle, all provider methods in      Modules are annotated with @Singleton.
+   
