@@ -13,6 +13,9 @@
         <action
             android:id="@+id/action_newsFragment_to_infoFragment"
             app:destination="@id/infoFragment" />
+        <action
+            android:id="@+id/action_newsFragment_to_exploreFragment"
+            app:destination="@id/exploreFragment" />
     </fragment>
     <fragment
         android:id="@+id/savedFragment"
@@ -22,6 +25,9 @@
         <action
             android:id="@+id/action_savedFragment_to_infoFragment"
             app:destination="@id/infoFragment" />
+        <action
+            android:id="@+id/action_savedFragment_to_exploreFragment"
+            app:destination="@id/exploreFragment" />
     </fragment>
     <fragment
         android:id="@+id/infoFragment"
@@ -31,5 +37,16 @@
         <argument
             android:name="selected_article"
             app:argType="com.example.newsapiclient.data.model.Article" />
+        <action
+            android:id="@+id/action_infoFragment_to_newsFragment"
+            app:destination="@id/newsFragment" />
+        <action
+            android:id="@+id/action_infoFragment_to_savedFragment"
+            app:destination="@id/savedFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/exploreFragment"
+        android:name="com.example.newsapiclient.ExploreFragment"
+        android:label="fragment_explore"
+        tools:layout="@layout/fragment_explore" />
 </navigation>

@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">NewsAPIClient</string>
     <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="explore_fragment_default">Details will be added soon..</string>
     <string name="default_date_string">Wednesday, November 30</string>
     <string name="daily_feed">Daily Feed</string>
 </resources>
