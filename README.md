@@ -1,4 +1,4 @@
-# News-App
+# Bulletin
 ![Screenshot_20221212-152803_NewsAPIClient](https://user-images.githubusercontent.com/39825424/207020868-d3a0e2ad-0dc2-46b8-b0c6-41b356a7b72f.jpg) 
 ![Screenshot_20221212-152927_NewsAPIClient](https://user-images.githubusercontent.com/39825424/207021011-9093d22b-9eb3-4bb8-be58-8778ab6f0a1f.jpg) 
 ![Screenshot_20221212-153036_NewsAPIClient](https://user-images.githubusercontent.com/39825424/207021033-51e51415-18c2-4b81-9686-913ee0dede78.jpg) 
